@@ -1,0 +1,45 @@
+<div class="panel">
+  <div class="panel-head">
+    <h2>Violation types</h2>
+    <input type="search" class="form-control form-control-sm ms-md-auto w-auto" placeholder="Search in table" aria-label="Search in table" data-table-search="#table-violations">
+    <button class="btn btn-primary btn-sm admin-only" data-bs-toggle="modal" data-bs-target="#modal-violations"><i class="bi bi-plus-lg"></i> Add violation type</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover mb-0 align-middle" id="table-violations">
+      <thead><tr><th>Code</th><th>Name</th><th>Standard fine</th><th>Description</th><th class="text-end admin-only">Actions</th></tr></thead>
+      <tbody>
+<tr><td>V-01</td><td>Speeding</td><td>€80</td><td>Driving above the posted limit</td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-violations" aria-label="Edit violation type"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-violations" aria-label="Delete violation type"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>V-02</td><td>Illegal parking</td><td>€30</td><td>Parking where it is not allowed</td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-violations" aria-label="Edit violation type"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-violations" aria-label="Delete violation type"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>V-03</td><td>Red light</td><td>€120</td><td>Crossing on a red signal</td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-violations" aria-label="Edit violation type"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-violations" aria-label="Delete violation type"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>V-04</td><td>No seat belt</td><td>€50</td><td>Driver or passenger without a seat belt</td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-violations" aria-label="Edit violation type"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-violations" aria-label="Delete violation type"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>V-05</td><td>Expired registration</td><td>€60</td><td>Vehicle registration is not valid</td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-violations" aria-label="Edit violation type"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-violations" aria-label="Delete violation type"><i class="bi bi-trash"></i></button></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-3 small text-secondary">Sample rows only. In Milestone 4 this table loads from the REST API.</div>
+</div>
+
+<!-- Add / edit form -->
+<div class="modal fade" id="modal-violations" tabindex="-1" aria-labelledby="modal-violations-title" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <form class="modal-content" data-demo-form="Violation type saved" novalidate>
+      <div class="modal-header"><h3 class="modal-title h5" id="modal-violations-title">Violation type details</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3">
+<div class="col-12 col-md-6"><label for="violations-code" class="form-label">Code</label><input type="text" class="form-control" id="violations-code" name="code"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="violations-name" class="form-label">Name</label><input type="text" class="form-control" id="violations-name" name="name"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="violations-fine" class="form-label">Standard fine (€)</label><input type="number" class="form-control" id="violations-fine" name="fine" min="1" step="1" required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="violations-description" class="form-label">Description</label><input type="text" class="form-control" id="violations-description" name="description"  required><div class="invalid-feedback">Fill in this field.</div></div>
+      </div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary">Save violation type</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation -->
+<div class="modal fade" id="delete-violations" tabindex="-1" aria-labelledby="delete-violations-title" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h3 class="modal-title h5" id="delete-violations-title">Delete this violation type?</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body">This removes the violation type from the records. You cannot undo it.</div>
+    <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep violation type</button><button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="UI.toast('Violation type deleted (demo only)')">Delete violation type</button></div>
+  </div></div>
+</div>

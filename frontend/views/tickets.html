@@ -1,0 +1,47 @@
+<div class="panel">
+  <div class="panel-head">
+    <h2>All tickets</h2>
+    <input type="search" class="form-control form-control-sm ms-md-auto w-auto" placeholder="Search in table" aria-label="Search in table" data-table-search="#table-tickets">
+    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-tickets"><i class="bi bi-plus-lg"></i> Add ticket</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover mb-0 align-middle" id="table-tickets">
+      <thead><tr><th>Ticket no.</th><th>Issued</th><th>Citizen</th><th>Plate</th><th>Violation</th><th>Fine</th><th>Officer</th><th>Status</th><th class="text-end admin-only">Actions</th></tr></thead>
+      <tbody>
+<tr><td>TCK-88231</td><td>21 Oct 2026</td><td>Adnan Mujic</td><td>A12-K-345</td><td>Speeding 20 km/h over</td><td>€80</td><td>P-214</td><td><span class="badge text-bg-danger">Unpaid</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-tickets" aria-label="Edit ticket"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-tickets" aria-label="Delete ticket"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>TCK-88230</td><td>21 Oct 2026</td><td>Lejla Hadzic</td><td>K34-E-901</td><td>Illegal parking</td><td>€30</td><td>P-188</td><td><span class="badge text-bg-success">Paid</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-tickets" aria-label="Edit ticket"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-tickets" aria-label="Delete ticket"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>TCK-88227</td><td>20 Oct 2026</td><td>Tarik Softic</td><td>J56-M-112</td><td>Red light</td><td>€120</td><td>P-302</td><td><span class="badge text-bg-warning">Contested</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-tickets" aria-label="Edit ticket"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-tickets" aria-label="Delete ticket"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>TCK-88219</td><td>18 Oct 2026</td><td>Sara Basic</td><td>E78-A-560</td><td>No seat belt</td><td>€50</td><td>P-214</td><td><span class="badge text-bg-success">Paid</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-tickets" aria-label="Edit ticket"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-tickets" aria-label="Delete ticket"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>TCK-88205</td><td>16 Oct 2026</td><td>Adnan Mujic</td><td>A12-K-345</td><td>Expired registration</td><td>€60</td><td>P-188</td><td><span class="badge text-bg-secondary">Cancelled</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-tickets" aria-label="Edit ticket"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-tickets" aria-label="Delete ticket"><i class="bi bi-trash"></i></button></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-3 small text-secondary">Sample rows only. In Milestone 4 this table loads from the REST API.</div>
+</div>
+
+<!-- Add / edit form -->
+<div class="modal fade" id="modal-tickets" tabindex="-1" aria-labelledby="modal-tickets-title" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <form class="modal-content" data-demo-form="Ticket saved" novalidate>
+      <div class="modal-header"><h3 class="modal-title h5" id="modal-tickets-title">Ticket details</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3">
+<div class="col-12 col-md-6"><label for="tickets-citizen" class="form-label">Citizen</label><select class="form-select" id="tickets-citizen" name="citizen" required><option value="" selected disabled>Choose…</option><option>Adnan Mujic</option><option>Lejla Hadzic</option><option>Tarik Softic</option><option>Sara Basic</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="tickets-vehicle" class="form-label">Vehicle plate</label><select class="form-select" id="tickets-vehicle" name="vehicle" required><option value="" selected disabled>Choose…</option><option>A12-K-345</option><option>K34-E-901</option><option>J56-M-112</option><option>E78-A-560</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="tickets-violation" class="form-label">Violation type</label><select class="form-select" id="tickets-violation" name="violation" required><option value="" selected disabled>Choose…</option><option>Speeding</option><option>Illegal parking</option><option>Red light</option><option>No seat belt</option><option>Expired registration</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="tickets-location" class="form-label">Location</label><input type="text" class="form-control" id="tickets-location" name="location"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="tickets-date" class="form-label">Date issued</label><input type="date" class="form-control" id="tickets-date" name="date"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="tickets-status" class="form-label">Status</label><select class="form-select" id="tickets-status" name="status" required><option value="" selected disabled>Choose…</option><option>Unpaid</option><option>Paid</option><option>Contested</option><option>Cancelled</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+      </div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary">Save ticket</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation -->
+<div class="modal fade" id="delete-tickets" tabindex="-1" aria-labelledby="delete-tickets-title" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h3 class="modal-title h5" id="delete-tickets-title">Delete this ticket?</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body">This removes the ticket from the records. You cannot undo it.</div>
+    <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep ticket</button><button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="UI.toast('Ticket deleted (demo only)')">Delete ticket</button></div>
+  </div></div>
+</div>

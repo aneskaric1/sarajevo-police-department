@@ -1,0 +1,48 @@
+<div class="panel">
+  <div class="panel-head">
+    <h2>Officers</h2>
+    <input type="search" class="form-control form-control-sm ms-md-auto w-auto" placeholder="Search in table" aria-label="Search in table" data-table-search="#table-officers">
+    <button class="btn btn-primary btn-sm admin-only" data-bs-toggle="modal" data-bs-target="#modal-officers"><i class="bi bi-plus-lg"></i> Add officer</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover mb-0 align-middle" id="table-officers">
+      <thead><tr><th>Badge</th><th>Name</th><th>Rank</th><th>Email</th><th>Role</th><th>Account</th><th class="text-end admin-only">Actions</th></tr></thead>
+      <tbody>
+<tr><td>A-001</td><td>Anes Karic</td><td>Chief Inspector</td><td>admin@spd.test</td><td>admin</td><td><span class="badge text-bg-success">Active</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-officers" aria-label="Edit officer"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-officers" aria-label="Delete officer"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>P-214</td><td>Emir Kovac</td><td>Patrol Officer</td><td>officer@spd.test</td><td>user</td><td><span class="badge text-bg-success">Active</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-officers" aria-label="Edit officer"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-officers" aria-label="Delete officer"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>P-188</td><td>Dino Delic</td><td>Patrol Officer</td><td>dino.delic@spd.test</td><td>user</td><td><span class="badge text-bg-success">Active</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-officers" aria-label="Edit officer"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-officers" aria-label="Delete officer"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>P-302</td><td>Maja Begic</td><td>Sergeant</td><td>maja.begic@spd.test</td><td>user</td><td><span class="badge text-bg-success">Active</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-officers" aria-label="Edit officer"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-officers" aria-label="Delete officer"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>P-331</td><td>Haris Zukic</td><td>Patrol Officer</td><td>haris.zukic@spd.test</td><td>user</td><td><span class="badge text-bg-warning">Pending</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-officers" aria-label="Edit officer"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-officers" aria-label="Delete officer"><i class="bi bi-trash"></i></button></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-3 small text-secondary">Sample rows only. In Milestone 4 this table loads from the REST API.</div>
+</div>
+
+<!-- Add / edit form -->
+<div class="modal fade" id="modal-officers" tabindex="-1" aria-labelledby="modal-officers-title" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <form class="modal-content" data-demo-form="Officer saved" novalidate>
+      <div class="modal-header"><h3 class="modal-title h5" id="modal-officers-title">Officer details</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3">
+<div class="col-12 col-md-6"><label for="officers-badge" class="form-label">Badge number</label><input type="text" class="form-control" id="officers-badge" name="badge"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-first" class="form-label">First name</label><input type="text" class="form-control" id="officers-first" name="first"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-last" class="form-label">Last name</label><input type="text" class="form-control" id="officers-last" name="last"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-rank" class="form-label">Rank</label><select class="form-select" id="officers-rank" name="rank" required><option value="" selected disabled>Choose…</option><option>Patrol Officer</option><option>Sergeant</option><option>Inspector</option><option>Chief Inspector</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-email" class="form-label">Email</label><input type="email" class="form-control" id="officers-email" name="email"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-role" class="form-label">Role</label><select class="form-select" id="officers-role" name="role" required><option value="" selected disabled>Choose…</option><option>user</option><option>admin</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="officers-status" class="form-label">Account</label><select class="form-select" id="officers-status" name="status" required><option value="" selected disabled>Choose…</option><option>Active</option><option>Pending</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+      </div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary">Save officer</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation -->
+<div class="modal fade" id="delete-officers" tabindex="-1" aria-labelledby="delete-officers-title" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h3 class="modal-title h5" id="delete-officers-title">Delete this officer?</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body">This removes the officer from the records. You cannot undo it.</div>
+    <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep officer</button><button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="UI.toast('Officer deleted (demo only)')">Delete officer</button></div>
+  </div></div>
+</div>

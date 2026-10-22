@@ -1,0 +1,51 @@
+<div class="row g-3 mb-3">
+  <div class="col-6 col-xl-3"><div class="stat alert-red"><div class="num">14</div>Open incidents</div></div>
+  <div class="col-6 col-xl-3"><div class="stat warn"><div class="num">37</div>Unpaid tickets</div></div>
+  <div class="col-6 col-xl-3"><div class="stat"><div class="num">22</div>Officers on duty</div></div>
+  <div class="col-6 col-xl-3"><div class="stat"><div class="num">76</div>Tickets this month</div></div>
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-12 col-xl-5">
+    <div class="panel h-100">
+      <div class="panel-head"><h2>Patrol weather</h2><span class="badge text-bg-secondary ms-auto">External API: planned</span></div>
+      <div class="p-3">
+        <div class="d-flex align-items-center gap-3">
+          <i class="bi bi-cloud-rain display-4"></i>
+          <div><div class="fs-2 fw-bold">8 &deg;C</div><div class="text-secondary">Light rain, wind 14 km/h</div></div>
+        </div>
+        <p class="small text-secondary mt-3 mb-0">Sample data. In Milestone 3 the backend will call a weather API (OpenWeatherMap) so officers see road conditions before a patrol.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-xl-4"><div class="panel h-100"><div class="panel-head"><h2>Tickets per month</h2></div><div class="chart-box"><canvas id="chart-tickets" aria-label="Bar chart of tickets issued per month" role="img"></canvas></div></div></div>
+  <div class="col-12 col-md-6 col-xl-3"><div class="panel h-100"><div class="panel-head"><h2>Incidents by type</h2></div><div class="chart-box"><canvas id="chart-incidents" aria-label="Doughnut chart of incidents by type" role="img"></canvas></div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-12 col-xl-8">
+    <div class="panel">
+      <div class="panel-head"><h2>Recent incidents</h2><a href="#/incidents" class="ms-auto small">View all</a></div>
+      <div class="table-responsive">
+        <table class="table mb-0 align-middle">
+          <thead><tr><th>Case</th><th>Type</th><th>Location</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>INC-2026-0412</td><td>Theft</td><td>Market Street 12</td><td><span class="badge text-bg-warning">Investigating</span></td></tr>
+            <tr><td>INC-2026-0411</td><td>Traffic accident</td><td>Ring Road, km 3</td><td><span class="badge text-bg-danger">Open</span></td></tr>
+            <tr><td>INC-2026-0409</td><td>Disturbance</td><td>Park Avenue 5</td><td><span class="badge text-bg-success">Closed</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-xl-4">
+    <div class="panel h-100">
+      <div class="panel-head"><h2>Quick actions</h2></div>
+      <div class="p-3 d-grid gap-2">
+        <a href="#/incidents" class="btn btn-primary">Report an incident</a>
+        <a href="#/tickets" class="btn btn-outline-primary">Issue a ticket</a>
+        <a href="#/officers" class="btn btn-outline-primary admin-only">Review new officer accounts (2)</a>
+      </div>
+    </div>
+  </div>
+</div>

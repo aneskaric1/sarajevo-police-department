@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" font-family="Arial, sans-serif" font-size="13">
+<rect width="1100" height="780" fill="#f3f5f8"/>
+<text x="40" y="26" font-size="18" font-weight="bold" fill="#14213d">Sarajevo Police Department - draft ERD (Milestone 1)</text>
+<line x1="320" y1="165" x2="410" y2="165" stroke="#5b7aa6" stroke-width="2"/>
+<text x="338" y="161" font-weight="bold" fill="#b3392f">1</text>
+<text x="392" y="161" font-weight="bold" fill="#b3392f">N</text>
+<text x="365" y="159" fill="#4a566b" font-style="italic" text-anchor="middle">issues</text>
+<line x1="550" y1="420" x2="550" y2="290" stroke="#5b7aa6" stroke-width="2"/>
+<text x="550" y="390" font-weight="bold" fill="#b3392f">1</text>
+<text x="550" y="312" font-weight="bold" fill="#b3392f">N</text>
+<text x="550" y="349" fill="#4a566b" font-style="italic" text-anchor="middle">receives</text>
+<line x1="788" y1="330" x2="690" y2="262" stroke="#5b7aa6" stroke-width="2"/>
+<text x="768" y="312" font-weight="bold" fill="#b3392f">1</text>
+<text x="710" y="272" font-weight="bold" fill="#b3392f">N</text>
+<text x="739" y="290" fill="#4a566b" font-style="italic" text-anchor="middle">involved in</text>
+<line x1="780" y1="131" x2="690" y2="144" stroke="#5b7aa6" stroke-width="2"/>
+<text x="762" y="129" font-weight="bold" fill="#b3392f">1</text>
+<text x="708" y="138" font-weight="bold" fill="#b3392f">N</text>
+<text x="735" y="132" fill="#4a566b" font-style="italic" text-anchor="middle">classifies</text>
+<line x1="690" y1="478" x2="780" y2="456" stroke="#5b7aa6" stroke-width="2"/>
+<text x="708" y="470" font-weight="bold" fill="#b3392f">1</text>
+<text x="762" y="456" font-weight="bold" fill="#b3392f">N</text>
+<text x="735" y="461" fill="#4a566b" font-style="italic" text-anchor="middle">owns</text>
+<line x1="180" y1="290" x2="180" y2="350" stroke="#5b7aa6" stroke-width="2"/>
+<text x="180" y="298" font-weight="bold" fill="#b3392f">1</text>
+<text x="180" y="334" font-weight="bold" fill="#b3392f">N</text>
+<text x="180" y="314" fill="#4a566b" font-style="italic" text-anchor="middle">handles</text>
+<line x1="180" y1="578" x2="180" y2="640" stroke="#5b7aa6" stroke-width="2"/>
+<text x="180" y="586" font-weight="bold" fill="#b3392f">1</text>
+<text x="180" y="624" font-weight="bold" fill="#b3392f">N</text>
+<line x1="410" y1="579" x2="281" y2="640" stroke="#5b7aa6" stroke-width="2"/>
+<text x="384" y="587" font-weight="bold" fill="#b3392f">1</text>
+<text x="307" y="624" font-weight="bold" fill="#b3392f">N</text>
+<text x="345" y="603" fill="#4a566b" font-style="italic" text-anchor="middle">involved in</text>
+<rect x="40" y="40" width="280" height="250" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="40" y="40" width="280" height="30" fill="#14213d"/>
+<text x="52" y="60" fill="#f2b705" font-weight="bold" font-size="15">users</text>
+<text x="52" y="86" fill="#14213d" font-weight="bold">id PK</text>
+<text x="52" y="108" fill="#333" font-weight="normal">badge_number UK</text>
+<text x="52" y="130" fill="#333" font-weight="normal">first_name</text>
+<text x="52" y="152" fill="#333" font-weight="normal">last_name</text>
+<text x="52" y="174" fill="#333" font-weight="normal">email UK</text>
+<text x="52" y="196" fill="#333" font-weight="normal">password_hash</text>
+<text x="52" y="218" fill="#333" font-weight="normal">rank</text>
+<text x="52" y="240" fill="#333" font-weight="normal">role (admin/user)</text>
+<text x="52" y="262" fill="#333" font-weight="normal">status</text>
+<text x="52" y="284" fill="#333" font-weight="normal">created_at</text>
+<rect x="410" y="40" width="280" height="250" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="410" y="40" width="280" height="30" fill="#14213d"/>
+<text x="422" y="60" fill="#f2b705" font-weight="bold" font-size="15">tickets</text>
+<text x="422" y="86" fill="#14213d" font-weight="bold">id PK</text>
+<text x="422" y="108" fill="#333" font-weight="normal">ticket_number UK</text>
+<text x="422" y="130" fill="#333" font-weight="normal">citizen_id FK</text>
+<text x="422" y="152" fill="#333" font-weight="normal">vehicle_id FK (null)</text>
+<text x="422" y="174" fill="#333" font-weight="normal">violation_type_id FK</text>
+<text x="422" y="196" fill="#333" font-weight="normal">officer_id FK</text>
+<text x="422" y="218" fill="#333" font-weight="normal">location</text>
+<text x="422" y="240" fill="#333" font-weight="normal">issued_at</text>
+<text x="422" y="262" fill="#333" font-weight="normal">fine_amount</text>
+<text x="422" y="284" fill="#333" font-weight="normal">status</text>
+<rect x="780" y="40" width="280" height="140" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="780" y="40" width="280" height="30" fill="#14213d"/>
+<text x="792" y="60" fill="#f2b705" font-weight="bold" font-size="15">violation_types</text>
+<text x="792" y="86" fill="#14213d" font-weight="bold">id PK</text>
+<text x="792" y="108" fill="#333" font-weight="normal">code UK</text>
+<text x="792" y="130" fill="#333" font-weight="normal">name</text>
+<text x="792" y="152" fill="#333" font-weight="normal">standard_fine</text>
+<text x="792" y="174" fill="#333" font-weight="normal">description</text>
+<rect x="780" y="330" width="280" height="184" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="780" y="330" width="280" height="30" fill="#14213d"/>
+<text x="792" y="350" fill="#f2b705" font-weight="bold" font-size="15">vehicles</text>
+<text x="792" y="376" fill="#14213d" font-weight="bold">id PK</text>
+<text x="792" y="398" fill="#333" font-weight="normal">plate_number UK</text>
+<text x="792" y="420" fill="#333" font-weight="normal">make</text>
+<text x="792" y="442" fill="#333" font-weight="normal">model</text>
+<text x="792" y="464" fill="#333" font-weight="normal">colour</text>
+<text x="792" y="486" fill="#333" font-weight="normal">status</text>
+<text x="792" y="508" fill="#333" font-weight="normal">citizen_id FK</text>
+<rect x="410" y="420" width="280" height="184" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="410" y="420" width="280" height="30" fill="#14213d"/>
+<text x="422" y="440" fill="#f2b705" font-weight="bold" font-size="15">citizens</text>
+<text x="422" y="466" fill="#14213d" font-weight="bold">id PK</text>
+<text x="422" y="488" fill="#333" font-weight="normal">first_name</text>
+<text x="422" y="510" fill="#333" font-weight="normal">last_name</text>
+<text x="422" y="532" fill="#333" font-weight="normal">national_id UK</text>
+<text x="422" y="554" fill="#333" font-weight="normal">date_of_birth</text>
+<text x="422" y="576" fill="#333" font-weight="normal">phone</text>
+<text x="422" y="598" fill="#333" font-weight="normal">address</text>
+<rect x="40" y="350" width="280" height="228" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="40" y="350" width="280" height="30" fill="#14213d"/>
+<text x="52" y="370" fill="#f2b705" font-weight="bold" font-size="15">incidents</text>
+<text x="52" y="396" fill="#14213d" font-weight="bold">id PK</text>
+<text x="52" y="418" fill="#333" font-weight="normal">case_number UK</text>
+<text x="52" y="440" fill="#333" font-weight="normal">title</text>
+<text x="52" y="462" fill="#333" font-weight="normal">type</text>
+<text x="52" y="484" fill="#333" font-weight="normal">description</text>
+<text x="52" y="506" fill="#333" font-weight="normal">location</text>
+<text x="52" y="528" fill="#333" font-weight="normal">reported_at</text>
+<text x="52" y="550" fill="#333" font-weight="normal">status</text>
+<text x="52" y="572" fill="#333" font-weight="normal">officer_id FK</text>
+<rect x="40" y="640" width="280" height="96" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="40" y="640" width="280" height="30" fill="#14213d"/>
+<text x="52" y="660" fill="#f2b705" font-weight="bold" font-size="15">incident_citizens</text>
+<text x="52" y="686" fill="#14213d" font-weight="bold">incident_id PK, FK</text>
+<text x="52" y="708" fill="#14213d" font-weight="bold">citizen_id PK, FK</text>
+<text x="52" y="730" fill="#333" font-weight="normal">involvement (victim/witness/suspect)</text>
+</svg>
