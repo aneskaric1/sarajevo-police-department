@@ -1,0 +1,19 @@
+<div class="tape"></div>
+<div class="container d-flex align-items-center justify-content-center auth-wrap py-5">
+  <div class="auth-card p-4 p-md-5">
+    <h1 class="h2 mb-1">Create an account</h1>
+    <p class="text-secondary">New officers register here. An administrator confirms your badge number.</p>
+    <form id="register-form" novalidate>
+      <div class="row g-3">
+        <div class="col-6"><label for="reg-first" class="form-label">First name</label><input class="form-control" id="reg-first" name="first" required><div class="invalid-feedback">Required.</div></div>
+        <div class="col-6"><label for="reg-last" class="form-label">Last name</label><input class="form-control" id="reg-last" name="last" required><div class="invalid-feedback">Required.</div></div>
+        <div class="col-12"><label for="reg-badge" class="form-label">Badge number</label><input class="form-control" id="reg-badge" name="badge" placeholder="P-123" required><div class="invalid-feedback">Enter your badge number.</div></div>
+        <div class="col-12"><label for="reg-email" class="form-label">Email</label><input type="email" class="form-control" id="reg-email" name="email" required><div class="invalid-feedback">Enter a valid email address.</div></div>
+        <div class="col-12"><label for="reg-password" class="form-label">Password</label><input type="password" class="form-control" id="reg-password" name="password" minlength="8" autocomplete="new-password" required><div class="invalid-feedback">Use at least 8 characters.</div></div>
+        <div class="col-12"><label for="reg-confirm" class="form-label">Confirm password</label><input type="password" class="form-control" id="reg-confirm" name="confirm" autocomplete="new-password" required><div class="invalid-feedback">Passwords must match.</div></div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mt-4">Create account</button>
+    </form>
+    <p class="small mt-3 mb-0">Already registered? <a href="#/login">Log in</a></p>
+  </div>
+</div>

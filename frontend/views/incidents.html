@@ -1,0 +1,48 @@
+<div class="panel">
+  <div class="panel-head">
+    <h2>All incidents</h2>
+    <input type="search" class="form-control form-control-sm ms-md-auto w-auto" placeholder="Search in table" aria-label="Search in table" data-table-search="#table-incidents">
+    <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-incidents"><i class="bi bi-plus-lg"></i> Add incident</button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover mb-0 align-middle" id="table-incidents">
+      <thead><tr><th>Case no.</th><th>Reported</th><th>Type</th><th>Location</th><th>Assigned officer</th><th>Status</th><th class="text-end admin-only">Actions</th></tr></thead>
+      <tbody>
+<tr><td>INC-2026-0412</td><td>21 Oct 2026</td><td>Theft</td><td>Market Street 12</td><td>P-214 Kovac</td><td><span class="badge text-bg-warning">Investigating</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-incidents" aria-label="Edit incident"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-incidents" aria-label="Delete incident"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>INC-2026-0411</td><td>21 Oct 2026</td><td>Traffic accident</td><td>Ring Road, km 3</td><td>P-188 Delic</td><td><span class="badge text-bg-danger">Open</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-incidents" aria-label="Edit incident"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-incidents" aria-label="Delete incident"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>INC-2026-0409</td><td>20 Oct 2026</td><td>Disturbance</td><td>Park Avenue 5</td><td>P-214 Kovac</td><td><span class="badge text-bg-success">Closed</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-incidents" aria-label="Edit incident"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-incidents" aria-label="Delete incident"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>INC-2026-0405</td><td>19 Oct 2026</td><td>Vandalism</td><td>Central School</td><td>P-302 Begic</td><td><span class="badge text-bg-warning">Investigating</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-incidents" aria-label="Edit incident"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-incidents" aria-label="Delete incident"><i class="bi bi-trash"></i></button></td></tr>
+<tr><td>INC-2026-0398</td><td>17 Oct 2026</td><td>Theft</td><td>Bus station</td><td>P-188 Delic</td><td><span class="badge text-bg-success">Closed</span></td><td class="text-end text-nowrap admin-only"><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-incidents" aria-label="Edit incident"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-incidents" aria-label="Delete incident"><i class="bi bi-trash"></i></button></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="p-3 small text-secondary">Sample rows only. In Milestone 4 this table loads from the REST API.</div>
+</div>
+
+<!-- Add / edit form -->
+<div class="modal fade" id="modal-incidents" tabindex="-1" aria-labelledby="modal-incidents-title" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <form class="modal-content" data-demo-form="Incident saved" novalidate>
+      <div class="modal-header"><h3 class="modal-title h5" id="modal-incidents-title">Incident details</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3">
+<div class="col-12 col-md-6"><label for="incidents-title" class="form-label">Title</label><input type="text" class="form-control" id="incidents-title" name="title"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-type" class="form-label">Type</label><select class="form-select" id="incidents-type" name="type" required><option value="" selected disabled>Choose…</option><option>Theft</option><option>Traffic accident</option><option>Disturbance</option><option>Vandalism</option><option>Assault</option><option>Other</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-location" class="form-label">Location</label><input type="text" class="form-control" id="incidents-location" name="location"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-date" class="form-label">Date reported</label><input type="date" class="form-control" id="incidents-date" name="date"  required><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-officer" class="form-label">Assigned officer</label><select class="form-select" id="incidents-officer" name="officer" required><option value="" selected disabled>Choose…</option><option>P-188 Delic</option><option>P-214 Kovac</option><option>P-302 Begic</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-status" class="form-label">Status</label><select class="form-select" id="incidents-status" name="status" required><option value="" selected disabled>Choose…</option><option>Open</option><option>Investigating</option><option>Closed</option></select><div class="invalid-feedback">Fill in this field.</div></div>
+<div class="col-12 col-md-6"><label for="incidents-description" class="form-label">Description</label><textarea class="form-control" id="incidents-description" name="description" rows="3" required></textarea><div class="invalid-feedback">Fill in this field.</div></div>
+      </div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button type="submit" class="btn btn-primary">Save incident</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirmation -->
+<div class="modal fade" id="delete-incidents" tabindex="-1" aria-labelledby="delete-incidents-title" aria-hidden="true">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h3 class="modal-title h5" id="delete-incidents-title">Delete this incident?</h3><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body">This removes the incident from the records. You cannot undo it.</div>
+    <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep incident</button><button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="UI.toast('Incident deleted (demo only)')">Delete incident</button></div>
+  </div></div>
+</div>

@@ -1,0 +1,62 @@
+/* Sarajevo Police Department theme: ink blue + evidence-tape yellow. */
+:root {
+  --mpd-ink: #14213d;
+  --mpd-ink-2: #1d2f55;
+  --mpd-tape: #f2b705;
+  --mpd-paper: #f3f5f8;
+  --mpd-line: #d9dfe8;
+  --bs-primary: #14213d;
+  --bs-primary-rgb: 20, 33, 61;
+  --bs-link-color: #1d2f55;
+  --bs-body-font-family: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-body-bg: var(--mpd-paper);
+  --bs-border-radius: .35rem;
+}
+h1, h2, h3, h4, .navbar-brand, .sidebar-brand { font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif; font-weight: 700; letter-spacing: .01em; }
+.btn-primary { --bs-btn-bg: var(--mpd-ink); --bs-btn-border-color: var(--mpd-ink); --bs-btn-hover-bg: var(--mpd-ink-2); --bs-btn-hover-border-color: var(--mpd-ink-2); --bs-btn-active-bg: var(--mpd-ink-2); }
+:focus-visible { outline: 3px solid var(--mpd-tape); outline-offset: 2px; }
+
+/* The one memorable element: evidence-tape stripe */
+.tape { height: 12px; background: repeating-linear-gradient(-45deg, var(--mpd-tape) 0 14px, var(--mpd-ink) 14px 28px); }
+
+/* Public pages */
+.mpd-navbar { background: var(--mpd-ink); }
+.mpd-navbar .navbar-brand { font-size: 1.35rem; }
+.mpd-navbar .nav-link.active { color: var(--mpd-tape); }
+.mpd-footer { background: var(--mpd-ink); color: #c9d2e3; font-size: .9rem; }
+.hero { background: var(--mpd-ink); color: #fff; padding: 4.5rem 0 4rem; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1; max-width: 14ch; }
+.hero p { max-width: 52ch; color: #c9d2e3; }
+.service-card { background: #fff; border: 1px solid var(--mpd-line); border-top: 4px solid var(--mpd-ink); padding: 1.25rem; height: 100%; }
+.service-card i { font-size: 1.6rem; color: var(--mpd-ink); }
+.news-item { border-left: 4px solid var(--mpd-tape); padding-left: 1rem; }
+.auth-wrap { min-height: calc(100vh - 56px - 120px); }
+.auth-card { max-width: 440px; width: 100%; background: #fff; border: 1px solid var(--mpd-line); }
+
+/* Application layout */
+.mpd-sidebar { --bs-offcanvas-width: 250px; background: var(--mpd-ink); color: #fff; min-height: 100vh; width: 250px; flex-shrink: 0; }
+@media (min-width: 992px) { .mpd-sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; } }
+.sidebar-brand { color: #fff; text-decoration: none; font-size: 1.4rem; padding: 1.1rem 1.25rem; border-bottom: 4px solid var(--mpd-tape); }
+.sidebar-nav .nav-link { color: #c9d2e3; padding: .65rem 1.25rem; display: flex; align-items: center; gap: .7rem; border-left: 4px solid transparent; }
+.sidebar-nav .nav-link:hover { color: #fff; background: var(--mpd-ink-2); }
+.sidebar-nav .nav-link.active { color: #fff; background: var(--mpd-ink-2); border-left-color: var(--mpd-tape); }
+.sidebar-heading { padding: 1.1rem 1.25rem .3rem; font-size: .8rem; color: #8d9bb5; }
+.mpd-main { min-width: 0; }
+.mpd-topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--mpd-line); position: sticky; top: 0; z-index: 10; }
+
+/* Cards, tables, status */
+.panel { background: #fff; border: 1px solid var(--mpd-line); border-radius: var(--bs-border-radius); }
+.panel-head { padding: .85rem 1.1rem; border-bottom: 1px solid var(--mpd-line); display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+.panel-head h2 { font-size: 1.25rem; margin: 0; }
+.stat { padding: 1rem 1.1rem; border-left: 4px solid var(--mpd-ink); background: #fff; border-top: 1px solid var(--mpd-line); border-right: 1px solid var(--mpd-line); border-bottom: 1px solid var(--mpd-line); }
+.stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+.stat.warn { border-left-color: var(--mpd-tape); }
+.stat.alert-red { border-left-color: #b3392f; }
+.table > :not(caption) > * > * { padding: .7rem 1rem; }
+.table thead th { font-weight: 600; color: #4a566b; font-size: .9rem; background: #f8f9fb; white-space: nowrap; }
+.chart-box { position: relative; height: 240px; padding: 1rem; }
+
+/* Role-based UI: hide admin-only items unless the role is admin */
+body:not([data-role="admin"]) .admin-only { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }

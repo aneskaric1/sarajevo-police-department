@@ -1,0 +1,16 @@
+# Secrets and local configuration
+backend/config/config.php
+.env
+
+# Logs (the folder itself stays through .gitkeep)
+backend/logs/*
+!backend/logs/.gitkeep
+
+# Composer packages
+backend/vendor/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,11 @@
+{
+  "name": "student/police-department",
+  "description": "Sarajevo Police Department REST API (FlightPHP)",
+  "require": {
+    "php": ">=8.1",
+    "flightphp/core": "^3.0"
+  },
+  "autoload": {
+    "classmap": ["rest/"]
+  }
+}
