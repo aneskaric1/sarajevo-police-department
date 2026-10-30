@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" font-family="Arial, sans-serif" font-size="13">
 <rect width="1100" height="780" fill="#f3f5f8"/>
-<text x="40" y="26" font-size="18" font-weight="bold" fill="#14213d">Sarajevo Police Department - draft ERD (Milestone 1)</text>
+<text x="40" y="26" font-size="18" font-weight="bold" fill="#14213d">Sarajevo Police Department - ERD (Milestone 2)</text>
 <line x1="320" y1="165" x2="410" y2="165" stroke="#5b7aa6" stroke-width="2"/>
 <text x="338" y="161" font-weight="bold" fill="#b3392f">1</text>
 <text x="392" y="161" font-weight="bold" fill="#b3392f">N</text>
@@ -28,10 +28,10 @@
 <line x1="180" y1="578" x2="180" y2="640" stroke="#5b7aa6" stroke-width="2"/>
 <text x="180" y="586" font-weight="bold" fill="#b3392f">1</text>
 <text x="180" y="624" font-weight="bold" fill="#b3392f">N</text>
-<line x1="410" y1="579" x2="281" y2="640" stroke="#5b7aa6" stroke-width="2"/>
-<text x="384" y="587" font-weight="bold" fill="#b3392f">1</text>
-<text x="307" y="624" font-weight="bold" fill="#b3392f">N</text>
-<text x="345" y="603" fill="#4a566b" font-style="italic" text-anchor="middle">involved in</text>
+<line x1="410" y1="587" x2="311" y2="640" stroke="#5b7aa6" stroke-width="2"/>
+<text x="390" y="594" font-weight="bold" fill="#b3392f">1</text>
+<text x="331" y="625" font-weight="bold" fill="#b3392f">N</text>
+<text x="360" y="607" fill="#4a566b" font-style="italic" text-anchor="middle">involved in</text>
 <rect x="40" y="40" width="280" height="250" fill="#fff" stroke="#14213d" stroke-width="2"/>
 <rect x="40" y="40" width="280" height="30" fill="#14213d"/>
 <text x="52" y="60" fill="#f2b705" font-weight="bold" font-size="15">users</text>
@@ -41,7 +41,7 @@
 <text x="52" y="152" fill="#333" font-weight="normal">last_name</text>
 <text x="52" y="174" fill="#333" font-weight="normal">email UK</text>
 <text x="52" y="196" fill="#333" font-weight="normal">password_hash</text>
-<text x="52" y="218" fill="#333" font-weight="normal">rank</text>
+<text x="52" y="218" fill="#333" font-weight="normal">officer_rank</text>
 <text x="52" y="240" fill="#333" font-weight="normal">role (admin/user)</text>
 <text x="52" y="262" fill="#333" font-weight="normal">status</text>
 <text x="52" y="284" fill="#333" font-weight="normal">created_at</text>
@@ -98,10 +98,12 @@
 <text x="52" y="528" fill="#333" font-weight="normal">reported_at</text>
 <text x="52" y="550" fill="#333" font-weight="normal">status</text>
 <text x="52" y="572" fill="#333" font-weight="normal">officer_id FK</text>
-<rect x="40" y="640" width="280" height="96" fill="#fff" stroke="#14213d" stroke-width="2"/>
+<rect x="40" y="640" width="280" height="140" fill="#fff" stroke="#14213d" stroke-width="2"/>
 <rect x="40" y="640" width="280" height="30" fill="#14213d"/>
 <text x="52" y="660" fill="#f2b705" font-weight="bold" font-size="15">incident_citizens</text>
-<text x="52" y="686" fill="#14213d" font-weight="bold">incident_id PK, FK</text>
-<text x="52" y="708" fill="#14213d" font-weight="bold">citizen_id PK, FK</text>
-<text x="52" y="730" fill="#333" font-weight="normal">involvement (victim/witness/suspect)</text>
+<text x="52" y="686" fill="#14213d" font-weight="bold">id PK</text>
+<text x="52" y="708" fill="#333" font-weight="normal">incident_id FK</text>
+<text x="52" y="730" fill="#333" font-weight="normal">citizen_id FK</text>
+<text x="52" y="752" fill="#333" font-weight="normal">involvement (victim/witness/suspect)</text>
+<text x="52" y="774" fill="#333" font-weight="normal">UK (incident_id, citizen_id)</text>
 </svg>
