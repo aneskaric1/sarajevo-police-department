@@ -55,6 +55,19 @@ class TicketDao extends BaseDao
                             ["officer_id" => $officer_id]);
     }
 
+    public function get_by_ticket_number($ticket_number)
+    {
+        return $this->query_unique("SELECT id, ticket_number FROM tickets WHERE ticket_number = :number",
+                                   ["number" => $ticket_number]);
+    }
+
+    // The highest ticket number, so the service can give the next one
+    public function get_last_ticket_number()
+    {
+        $row = $this->query_unique("SELECT ticket_number FROM tickets ORDER BY ticket_number DESC LIMIT 1");
+        return $row ? $row["ticket_number"] : null;
+    }
+
     // Dashboard: e.g. how many tickets are still unpaid
     public function count_by_status($status)
     {
