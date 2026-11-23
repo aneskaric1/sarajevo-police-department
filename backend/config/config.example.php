@@ -11,9 +11,16 @@ class Config
     public static function DB_USER()     { return self::get_env("DB_USER", "root"); }
     public static function DB_PASSWORD() { return self::get_env("DB_PASSWORD", ""); }
 
-    // Used from Milestone 3 and 4 on
-    public static function JWT_SECRET()      { return self::get_env("JWT_SECRET", "change-me-to-a-long-random-string"); }
-    public static function WEATHER_API_KEY() { return self::get_env("WEATHER_API_KEY", "your-openweathermap-key"); }
+    // External API: Open-Meteo weather forecast (free, no API key needed)
+    public static function OPEN_METEO_FORECAST_URL() { return self::get_env("OPEN_METEO_FORECAST_URL", "https://api.open-meteo.com/v1/forecast"); }
+    public static function OPEN_METEO_TIMEOUT()      { return self::get_env("OPEN_METEO_TIMEOUT", "5"); }   // seconds
+    // Where the patrol weather is shown for: Sarajevo
+    public static function PATROL_CITY()      { return self::get_env("PATROL_CITY", "Sarajevo"); }
+    public static function PATROL_LATITUDE()  { return self::get_env("PATROL_LATITUDE", "43.8563"); }
+    public static function PATROL_LONGITUDE() { return self::get_env("PATROL_LONGITUDE", "18.4131"); }
+
+    // Used from Milestone 4 on
+    public static function JWT_SECRET() { return self::get_env("JWT_SECRET", "change-me-to-a-long-random-string"); }
 
     private static function get_env($name, $default)
     {

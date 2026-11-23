@@ -36,12 +36,18 @@ class IncidentCitizenDao extends BaseDao
         );
     }
 
-    // Stops adding the same citizen twice to the same incident
-    public function exists($incident_id, $citizen_id)
+    // The link between one incident and one citizen, or null
+    public function get_link($incident_id, $citizen_id)
     {
         return $this->query_unique(
             "SELECT id FROM incident_citizens WHERE incident_id = :incident_id AND citizen_id = :citizen_id",
             ["incident_id" => $incident_id, "citizen_id" => $citizen_id]
-        ) !== null;
+        );
+    }
+
+    // Stops adding the same citizen twice to the same incident
+    public function exists($incident_id, $citizen_id)
+    {
+        return $this->get_link($incident_id, $citizen_id) !== null;
     }
 }

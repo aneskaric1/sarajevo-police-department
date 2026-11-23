@@ -42,6 +42,22 @@ class IncidentDao extends BaseDao
                             ["officer_id" => $officer_id]);
     }
 
+    public function get_by_case_number($case_number)
+    {
+        return $this->query_unique("SELECT id, case_number FROM incidents WHERE case_number = :number",
+                                   ["number" => $case_number]);
+    }
+
+    // The highest case number of one year, e.g. "INC-2026-0412" for "INC-2026-"
+    public function get_last_case_number($prefix)
+    {
+        $row = $this->query_unique(
+            "SELECT case_number FROM incidents WHERE case_number LIKE :prefix ORDER BY case_number DESC LIMIT 1",
+            ["prefix" => $prefix . "%"]
+        );
+        return $row ? $row["case_number"] : null;
+    }
+
     // Dashboard chart "Incidents by type"
     public function count_by_type()
     {

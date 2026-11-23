@@ -30,3 +30,18 @@
 2. **Composite primary key did not fit BaseDao.** The draft gave `incident_citizens` a primary key of (incident_id, citizen_id) and no `id`. BaseDao's `get_by_id()`, `update()` and `delete()` all use `WHERE id = :id`, so they could not work for that table. Fixed by adding an `id` column and keeping (incident_id, citizen_id) as a UNIQUE key; the ERD was updated.
 3. **A test that depended on the database.** One check in `test_crud.php` expected `officer_name` to be NULL for an incident without an officer. It failed on SQLite, because SQLite's `CONCAT()` turns NULL into empty text while MySQL returns NULL. Fixed by checking `officer_badge`, which is NULL in both databases. This also shows that the AI's SQLite test is not the same as testing on MySQL.
 4. **`php` is not recognized.** The AI told me to run `php rest/dao/test.php`, but on my Windows machine PHP was not in the PATH, so PowerShell said the command was not found. I fixed it by calling `C:\xampp\php\php.exe` directly. The instructions should have mentioned this for XAMPP.
+
+## Milestone 3: services, routes, OpenAPI and external API
+
+### AI tools used
+- Claude (Claude Code): wrote the business logic layer (`utils/exceptions.php`, `utils/Validator.php`, `BaseService` and one service per entity), the FlightPHP presentation layer (`index.php` with one error handler, one routes file per entity, `server.php`), the Open-Meteo `WeatherService` with the `GET /weather` endpoint, and the OpenAPI documentation with Swagger UI (`backend/public/v1/docs`). It also updated README and AGENTS.md.
+- The AI could not use Composer, MySQL or the real Open-Meteo API in its environment. It tested with FlightPHP and swagger-php downloaded from GitHub, an SQLite copy of the database (81 API requests, all with the expected status) and a fake weather server (success, error page, HTTP 500, timeout). I still have to run `composer install` and check everything on XAMPP.
+
+### Most important prompts
+1. "Let's go to milestone 3. Tell me which files I have sent you so far."
+2. "Research if needed, then we continue with milestone 3."
+
+### Cases where the AI was wrong or produced poor code
+1. **A comment that closed itself.** The generated `doc_setup.php` had a comment explaining that comments must be written as `/* */`. The `*/` inside the text ended the comment early and PHP stopped with a parse error. Noticed with `php -l`. Fixed by rewording the comment.
+2. **Quotes in the OpenAPI examples.** The example `Field 'location' is required.` was written inside single quotes without escaping, which broke the PHP syntax of the schema. Noticed with `php -l`; fixed by escaping the quotes (`\'`).
+3. **Testing without the real tools.** Because Composer and Open-Meteo were blocked for the AI, it could not prove that `composer install` and the live weather call work. It said so and tested with replacements, which is not the same as the real thing.
